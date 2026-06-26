@@ -203,7 +203,10 @@ function startRecog() {
 
 function stopRecog() {
   isRunning = false;
-  if (recog) { try { recog.stop(); } catch(_) {} recog = null; }
+  if (recog) { 
+    try { recog.abort(); } catch(_) {}
+    setTimeout(() => { recog = null; }, 100);
+  }
   statusEl.textContent = '✓ Gestoppt. ' + segments.length + ' Segmente erfasst.';
   liveText.textContent = '';
   syncBtn.disabled = false;
