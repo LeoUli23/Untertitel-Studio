@@ -137,7 +137,10 @@
   .reset-bar button:hover{border-color:var(--danger);color:var(--danger);}
 
   @media(max-width:880px){
-    .wrap{grid-template-columns:1fr;}
+    .wrap{grid-template-columns:minmax(0,1fr);padding:0 12px;}
+    .wrap > *{min-width:0;}
+    .add-row input{min-width:0;}
+    .add-row button{flex:none;white-space:nowrap;}
     .lib-list{max-height:300px;}
     .prog-name{width:100%;margin-left:0;}
     .prog-name input{flex:1;min-width:0;}
